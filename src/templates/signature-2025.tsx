@@ -12,7 +12,14 @@ import {
 	Text,
 } from "@react-email/components";
 
-export function Signature2025() {
+type Props = {
+	name: string;
+	title: string;
+	email: string;
+	phoneNumber: string;
+};
+
+export function Signature2025({ name, title, email, phoneNumber }: Props) {
 	const publicURL = process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL
 		? `https://${process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL}`
 		: "http://localhost:3000";
@@ -22,21 +29,22 @@ export function Signature2025() {
 			<Tailwind>
 				<Body>
 					<Heading as="h3" className="text-lg my-0">
-						<strong>Thuy Phung</strong>
+						<strong>{name}</strong>
 					</Heading>
-					<Text className="italic text-sm my-0">
-						Administrative and HR Officer
-					</Text>
+					<Text className="italic text-sm my-0">{title}</Text>
 					<Text className="text-sm my-0">
 						<strong>M</strong>{" "}
-						<Link href="tel:0932324388" className="underline">
-							+84 932 324 388
+						<Link
+							href={`tel:${phoneNumber.replaceAll(" ", "")}`}
+							className="underline"
+						>
+							{phoneNumber}
 						</Link>
 					</Text>
 					<Text className="text-sm my-0">
 						<strong>E</strong>{" "}
-						<Link href="mailto:thuypth@missingcorner.com" className="underline">
-							thuypth@missingcorner.com
+						<Link href={`mailto:${email}`} className="underline">
+							{email}
 						</Link>
 					</Text>
 					<Hr />

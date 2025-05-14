@@ -1,10 +1,40 @@
 import { pretty, render } from "@react-email/render";
 import { Signature2025 } from "~/templates/signature-2025";
+import { CopyToClipboard } from "./components/copy-to-clipboard";
 
-export default async function Home() {
-	const content = await pretty(await render(<Signature2025 />));
+type Props = {
+	searchParams: Promise<Record<string, any>>;
+};
+
+export default async function Home(props: Props) {
+	const searchParams = await props.searchParams;
+
+	const name = searchParams.name ?? "Thanh Trang";
+	const title = searchParams.title ?? "Senior Bug Breader";
+	const phoneNumber = searchParams.phone ?? "+84 944 22 06 91";
+	const email = searchParams.email ?? "thanhtc@missingcorner.com";
+
+	const content = await pretty(
+		await render(
+			<Signature2025
+				name={name}
+				title={title}
+				phoneNumber={phoneNumber}
+				email={email}
+			/>,
+		),
+	);
 	return (
 		<main>
+			<form method="GET">
+				<input type="text" name="name" placeholder="Name" />
+				<input type="text" name="title" placeholder="Title" />
+				<input type="text" name="phoneNumber" placeholder="Phone Number" />
+				<input type="email" name="email" placeholder="Email" />
+				<button>Generate!</button>
+			</form>
+			<CopyToClipboard content={content} />
+			<hr />
 			<div dangerouslySetInnerHTML={{ __html: content }} />
 		</main>
 	);
