@@ -27,10 +27,15 @@ export default async function Home(props: Props) {
 	return (
 		<main>
 			<form method="GET">
-				<input type="text" name="name" placeholder="Name" />
-				<input type="text" name="title" placeholder="Title" />
-				<input type="text" name="phoneNumber" placeholder="Phone Number" />
-				<input type="email" name="email" placeholder="Email" />
+				<input type="text" required name="name" placeholder="Name" />
+				<input type="text" required name="title" placeholder="Title" />
+				<input
+					type="text"
+					required
+					name="phoneNumber"
+					placeholder="Phone Number"
+				/>
+				<input type="email" required name="email" placeholder="Email" />
 				<button>Generate!</button>
 			</form>
 			<CopyToClipboard content={content} />
