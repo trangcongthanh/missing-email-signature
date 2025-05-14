@@ -11,7 +11,7 @@ export default async function Home(props: Props) {
 
 	const name = searchParams.name ?? "Thanh Trang";
 	const title = searchParams.title ?? "Senior Bug Breader";
-	const phoneNumber = searchParams.phone ?? "+84 944 22 06 91";
+	const phoneNumber = searchParams.phone ?? "+84 981 244 981";
 	const email = searchParams.email ?? "thanhtc@missingcorner.com";
 
 	const content = await pretty(
