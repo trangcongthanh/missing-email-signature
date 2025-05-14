@@ -1,6 +1,7 @@
 import {
 	Body,
 	Column,
+	Head,
 	Heading,
 	Hr,
 	Html,
@@ -12,10 +13,12 @@ import {
 } from "@react-email/components";
 
 export function Signature2025() {
-	const publicURL =
-		process.env.NEXT_PUBLIC_VERCEL_URL || "http://localhost:3000";
+	const publicURL = process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL
+		? `https://${process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL}`
+		: "http://localhost:3000";
 	return (
 		<Html>
+			<Head />
 			<Tailwind>
 				<Body>
 					<Heading as="h3" className="text-lg my-0">
