@@ -29,12 +29,7 @@ export default async function Home(props: Props) {
 			<form method="GET">
 				<input type="text" required name="name" placeholder="Name" />
 				<input type="text" required name="title" placeholder="Title" />
-				<input
-					type="text"
-					required
-					name="phoneNumber"
-					placeholder="Phone Number"
-				/>
+				<input type="text" required name="phone" placeholder="Phone Number" />
 				<input type="email" required name="email" placeholder="Email" />
 				<button>Generate!</button>
 			</form>
