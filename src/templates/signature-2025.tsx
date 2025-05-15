@@ -26,41 +26,59 @@ export function Signature2025({ name, title, email, phoneNumber }: Props) {
 	return (
 		<Html>
 			<Head />
-			<Tailwind>
-				<Body>
-					<Heading as="h3" className="text-lg my-0">
+			<Tailwind
+				config={{
+					theme: {
+						extend: {
+							fontFamily: {
+								sans: "Arial, sans-serif",
+							},
+						},
+					},
+				}}
+			>
+				<Body className="font-sans">
+					<Text className="text-lg leading-tight my-0">
 						<strong>{name}</strong>
-					</Heading>
-					<Text className="italic text-sm my-0">{title}</Text>
+					</Text>
+					<Text className="text-sm leading-[1.125rem] my-0 mb-1 text-gray-500">
+						{title}
+					</Text>
 					<Text className="text-sm my-0">
-						<strong>M</strong>{" "}
+						<strong className="text-[#5c15f5]">M</strong>
+						{": "}
 						<Link
 							href={`tel:${phoneNumber.replaceAll(" ", "")}`}
-							className="underline"
+							className="text-[inherit]"
 						>
 							{phoneNumber}
 						</Link>
 					</Text>
 					<Text className="text-sm my-0">
-						<strong>E</strong>{" "}
-						<Link href={`mailto:${email}`} className="underline">
+						<strong className="text-[#5c15f5]">E</strong>
+						{": "}
+						<Link href={`mailto:${email}`} className="text-[inherit]">
 							{email}
 						</Link>
 					</Text>
-					<Hr />
+					<Hr className="my-4" />
 					<Row>
 						<Column>
-							<Img src={`${publicURL}/images/2025/logo.png`} width="100" />
-							<Text className="text-sm my-0 mt-2">
+							<Img
+								src={`${publicURL}/images/2025/logo.png`}
+								width="100"
+								className="mb-5"
+							/>
+							<Text className="text-xs my-0 mt-2">
 								<strong>Missing Corner, Ltd.</strong>
 							</Text>
-							<Text className="text-sm my-0">
+							<Text className="text-xs my-0">
 								78/5 Duy Tan, Dich Vong Hau, Cau Giay, Hanoi, Vietnam.
 							</Text>
-							<Text className="text-sm my-0">
+							<Text className="text-xs my-0 mt-2">
 								<strong>Missing Corner, Inc.</strong>
 							</Text>
-							<Text className="text-sm my-0">
+							<Text className="text-xs my-0">
 								600 N Broad St, Ste 5, Middletown, DE 19709, USA.
 							</Text>
 						</Column>
